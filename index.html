@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOSE</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header class="flex justify-between items-center">
+        <button id="sidebtn" class="text-4xl text-black p-2 ml-4">&#9776;</button>
+        <a href="#">
+            <img class="w-20" src="https://github.com/parkheeyeun/bose-clone/blob/main/img/logo.png?raw=true"
+                alt="logo_image">
+        </a>
+        <div id="icons" class="flex p-2">
+            <button id="search">
+                <svg class="text-2xl mr-3 fill-black" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 512 512">
+                    <path
+                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                </svg>
+            </button>
+            <button>
+                <svg class="text-2xl mr-3 fill-black" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 448 512">
+                    <path
+                        d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+                </svg>
+            </button>
+            <button>
+                <svg class="text-2xl fill-black" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                    <path
+                        d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="modal" class="fixed w-full h-full m-auto inset-0 bg-black/80 z-10 hidden">
+            <button id="modalclose" class="absolute font-thin text-7xl z-20 text-white right-5 top-10">&times;</button>
+            <form class="w-[720px] m-auto relative text-center py-80">
+                <input type="search"
+                    class="w-[720px] relative z-20 bg-transparent border-b align-middle text-2xl text-white pl-2 pb-2"
+                    placeholder="검색">
+                <button class="absolute right-0">
+                    <svg class="text-2xl fill-white" xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+
+    </header>
+    <nav class="bg-white w-full py-3">
+        <ul class="flex justify-around items-center text-black text-center text-sm">
+            <li class="">
+                <a href="" class="hover:opacity-50">전체</a>
+            </li>
+            <li class="">
+                <a href="#" class="hover:opacity-50">
+                    헤드폰</a>
+            </li>
+            <li id="dropdown" class="relative">
+                <a href="#" class="w-full block hover:opacity-50">
+                    이어폰</a>
+                <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
+                    <li class="p-2 w-full transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a
+                            href="#" class="p-1 block w-full">전체</a></li>
+                    <li class="p-2  w-full transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a
+                            href="#" class="p-1 block w-full">이어폰</a></li>
+                    <li class="p-2  w-full transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a
+                            href="#" class="p-1 block w-full">이어폰 액세서리</a></li>
+                </ul>
+            </li>
+            <li id="dropdown" class="">
+                <a href="" class="block hover:opacity-50">
+                    사운드바</a>
+                <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">전체</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">사운드바</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">사운드바 세트</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">홈시어터</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">사운드바 액세서리</a></li>
+                </ul>
+            </li>
+            <li id="dropdown" class="">
+                <a href="" class="hover:opacity-50">
+                    스피커</a>
+                <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">전체</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">무선 스피커</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">홈 스피커</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">컴퓨터 스피커</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">스피커 액세서리</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="" class="hover:opacity-50">리퍼 상품</a>
+            </li>
+            <li id="dropdown" class="">
+                <a href="" class="hover:opacity-50">
+                    고객지원</a>
+                <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">공지</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">쇼핑스토리</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">FAQ</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">특판문의</a></li>
+                    <li class="p-2 transition duration-500 ease-in-out hover:bg-black hover:text-gray-500"><a href=""
+                            class="p-1 block">1:1 문의</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <nav id="sidebar" class="fixed top-0 left-0 w-72 h-full bg-zinc-900 absolute z-20 hidden">
+        <button id="closebtn"
+            class="font-thin text-4xl text-white opacity-50 float-right mr-3 mt-2 hover:opacity-100">&times;</button>
+        <div class="flex flex-col justify-center items-center">
+            <a href="#">
+                <img class="mt-12" src="https://cdn.imweb.me/thumbnail/20230515/b228efa3d1603.png" alt="">
+            </a>
+            <a href="">
+                <p class="text-white opacity-50 mt-6 text-lg tracking-widest hover:opacity-100 pointer">전체</p>
+            </a>
+            <a href="#">
+                <p class="text-white opacity-50 mt-4 text-lg tracking-widest hover:opacity-100 pointer">헤드폰</p>
+            </a>
+            <a href="#">
+                <p class="text-white opacity-50 mt-4 text-lg tracking-widest hover:opacity-100 pointer">이어폰</p>
+            </a>
+            <a href="">
+                <p class="text-white opacity-50 mt-4 text-lg tracking-widest hover:opacity-100 pointer">사운드바</p>
+            </a>
+            <a href="">
+                <p class="text-white opacity-50 mt-4 text-lg tracking-widest hover:opacity-100 pointer">스피커</p>
+            </a>
+            <a href="">
+                <p class="text-white opacity-50 mt-4 text-lg tracking-widest hover:opacity-100 pointer">리퍼 상품
+                </p>
+            </a>
+            <a href="">
+                <p class="text-white opacity-50 mt-4 text-lg tracking-widest hover:opacity-100 pointer">고객지원</p>
+            </a>
+        </div>
+    </nav>
+
+    <div id="overlay" class="fixed inset-0 bg-black/80 z-10 hidden"></div>
+
+    <div id="home">
+        <div class="relative inset-0 h-[600px] bg-cover bg-[url('https://cdn.imweb.me/thumbnail/20220816/8b5b4376c2b0e.png')] lg:bg-[url('https://cdn.imweb.me/thumbnail/20221006/9aba899ff6a2a.png')]"
+            style="background-position: 40% 15%;">
+            <div class="hidden lg:block w-[550px] h-full lg:flex flex-col justify-center items-center">
+                <span class="text-gray-100 text-lg inline-block">QUIWRCOMFORT® EARBURS II</span>
+                <h1 class="font-semibold text-2xl mt-8 text-gray-100">내게 딱 맞는</h1><br>
+                <span class="font-semibold text-gray-100 text-2xl">사운드와 핏.</span>
+                <a href="">
+                    <button class="border px-12 py-4 mt-8 text-black tracking-wider hidden lg:block">자세히보기<span
+                            class="ml-1">></span></button>
+                </a>
+            </div>
+            <div class="h-full flex flex-col justify-end items-center lg:hidden">
+                <h1 class="font-semibold text-xl text-gray-100">때와 장소를 가리지 않는</h1>
+                <span class="font-semibold text-gray-100 text-xl mt-2">깊고 풍부한 사운드.</span>
+                <span class="font-thin text-gray-100 text-sm mb-4">SOUNDLINK FLEX</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="bg-white">
+            <div class="h-full grid grid-cols-1 galg:grid-cols-4">
+                <div id="ment" class="flex flex-col text-black text-xl justify-center items-center ml-4 mt-4 lg:mt-0">
+                    <p>왜 BOSE 온라인 스토어에서</p>
+                    <p class="mt-1">구매해야할까요?</p>
+                </div>
+                <div class=" relative my-6 mx-4 bg-neutral-200 rounded-lg flex flex-col justify-center items-left px-6">
+                    <p class="text-black text-lg mt-4">보스코리아 정품</p>
+                    <p class="text-black text-lg">1년 A/S 보장</p>
+                    <a href="" class="text-gray-500 text-sm my-4">
+                        <p>정품 안내 확인하기<span class="ml-1">></span></p>
+                    </a>
+                    <svg class="fill-black w-12 h-14 absolute bottom-5 right-4" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M20.626 10l1.374-1.737-1.895-1.168.687-2.095-2.187-.46-.079-2.2-2.213.304-.84-2.04-1.977 1.031-1.496-1.635-1.497 1.634-1.977-1.03-.84 2.04-2.212-.305-.079 2.2-2.187.461.687 2.095-1.895 1.168 1.374 1.737-1.374 1.737 1.895 1.168-.687 2.095 2.187.46.079 2.2 2.213-.304.84 2.04 1.977-1.031 1.496 1.635 1.497-1.634 1.977 1.031.84-2.04 2.213.304.079-2.2 2.186-.461-.687-2.095 1.895-1.168-1.374-1.737zm-8.626 7c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7zm5.141 3.276l2.401 3.724 1.146-2h2.312l-2.655-4.103c-.917.969-1.999 1.775-3.204 2.379zm-13.486-2.379l-2.655 4.103h2.312l1.146 2 2.401-3.724c-1.205-.604-2.287-1.41-3.204-2.379zm8.345-12.897c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm0-1c-3.314 0-6 2.687-6 6s2.686 6 6 6 6-2.687 6-6-2.686-6-6-6z" />
+                    </svg>
+                </div>
+                <div class="relative my-6 mx-4 bg-neutral-200 rounded-lg flex flex-col justify-center items-left px-6">
+                    <p class="text-black text-lg mt-4">네이버페이 결제 시</p>
+                    <p class="text-black text-lg">최대 5% 포인트 적립</p>
+                    <a href="" class="text-gray-500 text-sm my-4">
+                        <p>쇼핑 바로가기<span class="ml-1">></span></p>
+                    </a>
+                    <svg class="fill-black w-10 h-10 absolute bottom-5 right-4" xmlns="http://www.w3.org/2000/svg"
+                        height="1em" viewBox="0 0 576 512">
+                        <path
+                            d="M312 24V34.5c6.4 1.2 12.6 2.7 18.2 4.2c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17c-10.9-2.9-21.1-4.9-30.2-5c-7.3-.1-14.7 1.7-19.4 4.4c-2.1 1.3-3.1 2.4-3.5 3c-.3 .5-.7 1.2-.7 2.8c0 .3 0 .5 0 .6c.2 .2 .9 1.2 3.3 2.6c5.8 3.5 14.4 6.2 27.4 10.1l.9 .3 0 0c11.1 3.3 25.9 7.8 37.9 15.3c13.7 8.6 26.1 22.9 26.4 44.9c.3 22.5-11.4 38.9-26.7 48.5c-6.7 4.1-13.9 7-21.3 8.8V232c0 13.3-10.7 24-24 24s-24-10.7-24-24V220.6c-9.5-2.3-18.2-5.3-25.6-7.8c-2.1-.7-4.1-1.4-6-2c-12.6-4.2-19.4-17.8-15.2-30.4s17.8-19.4 30.4-15.2c2.6 .9 5 1.7 7.3 2.5c13.6 4.6 23.4 7.9 33.9 8.3c8 .3 15.1-1.6 19.2-4.1c1.9-1.2 2.8-2.2 3.2-2.9c.4-.6 .9-1.8 .8-4.1l0-.2c0-1 0-2.1-4-4.6c-5.7-3.6-14.3-6.4-27.1-10.3l-1.9-.6c-10.8-3.2-25-7.5-36.4-14.4c-13.5-8.1-26.5-22-26.6-44.1c-.1-22.9 12.9-38.6 27.7-47.4c6.4-3.8 13.3-6.4 20.2-8.2V24c0-13.3 10.7-24 24-24s24 10.7 24 24zM568.2 336.3c13.1 17.8 9.3 42.8-8.5 55.9L433.1 485.5c-23.4 17.2-51.6 26.5-80.7 26.5H192 32c-17.7 0-32-14.3-32-32V416c0-17.7 14.3-32 32-32H68.8l44.9-36c22.7-18.2 50.9-28 80-28H272h16 64c17.7 0 32 14.3 32 32s-14.3 32-32 32H288 272c-8.8 0-16 7.2-16 16s7.2 16 16 16H392.6l119.7-88.2c17.8-13.1 42.8-9.3 55.9 8.5zM193.6 384l0 0-.9 0c.3 0 .6 0 .9 0z" />
+                    </svg>
+                </div>
+                <div class="relative my-6 mx-4 bg-neutral-200 rounded-lg flex flex-col justify-center items-left px-6">
+                    <p class="text-black text-lg mt-4">포토 리뷰 작성시 </p>
+                    <p class="text-black text-lg">스타벅스 아메리카노 증정</p>
+                    <a href="" class="text-gray-500 text-sm my-4">
+                        <p>포토 리뷰 작성하기<span class="ml-1">></span></p>
+                    </a>
+                    <svg class="fill-black w-10 h-10 absolute bottom-5 right-4" xmlns="http://www.w3.org/2000/svg"
+                        height="1em" viewBox="0 0 512 512">
+                        <path
+                            d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        // 화면에 맞추기 carousel, 선택
+        <div class="h-[750px] relative overflow-hidden box-border">
+            <img id="main" class="h-[750px] w-full object-cover" style="background-position: 50% 50%;"
+                src="https://cdn.imweb.me/thumbnail/20221221/060eb6d72a60e.png" alt="">
+
+            <div id="carousel" class="w-full absolute flex justify-center opacity-0 visual">
+                <img class="thumbnail" style="background-position: 50% 50%;"
+                    src="https://cdn.imweb.me/thumbnail/20221221/060eb6d72a60e.png" alt="">
+                <img class="thumbnail" style="background-position: 50% 50%;"
+                    src="https://cdn.imweb.me/thumbnail/20221006/daf77a620b3fb.png" alt="">
+                <img class="thumbnail" style="background-position: 50% 50%;"
+                    src="https://cdn.imweb.me/thumbnail/20220816/701610f6cc681.jpg" alt="">
+                <img class="thumbnail" style="background-position: 50% 50%;"
+                    src="https://cdn.imweb.me/thumbnail/20220816/5e72def4e01df.png" alt="">
+            </div>
+
+            <div id="indicator" class="absolute bottom-1 text-center w-full">
+                <span class="dot cursor-pointer active"></span>
+                <span class="dot cursor-pointer"></span>
+                <span class="dot cursor-pointer"></span>
+                <span class="dot cursor-pointer"></span>
+            </div>
+        </div>
+
+        <div class="max-w-screen-xl m-auto">
+            <div class="grid grid-cols-2 gamy-20 mx-4 lg:grid-cols-6">
+                <button
+                    class="border border-gray-200 border-box rounded-lg py-8 px-1 flex flex-col items-center hover:shadow-xl"
+                    onclick="location.href='headphone.html';">
+                    <p class="text-gray-500 tracking-widest">Headpones</p>
+                    <p class="text-xl font-semibold">헤드폰</p>
+                </button>
+                <button
+                    class="border border-gray-200 border-box rounded-lg py-8 px-1 flex flex-col items-center hover:shadow-xl"
+                    onclick="location.href='#';">
+                    <p class="text-gray-500 tracking-widest">Earbuds</p>
+                    <p class="text-xl font-semibold">이어폰</p>
+                </button>
+                <button
+                    class="border border-gray-200 border-box rounded-lg py-8 px-1 flex flex-col items-center hover:shadow-xl">
+                    <p class="text-gray-500 tracking-widest">Soundbar</p>
+                    <p class="text-xl font-semibold">사운드바</p>
+                </button>
+                <button
+                    class="border border-gray-200 border-box rounded-lg py-8 px-1 flex flex-col items-center hover:shadow-xl">
+                    <p class="text-gray-500 tracking-widest">Speaker</p>
+                    <p class="text-xl font-semibold">스피커</p>
+                </button>
+                <button
+                    class="border border-gray-200 border-box rounded-lg py-8 px-1 flex flex-col items-center hover:shadow-xl">
+                    <p class="text-gray-500 tracking-widest">Sleepbuds</p>
+                    <p class="text-xl font-semibold">슬립버드</p>
+                </button>
+                <button
+                    class="border border-gray-200 border-box rounded-lg py-8 px-1 flex flex-col items-center hover:shadow-xl">
+                    <p class="text-gray-500 tracking-widest">Audio Sunglasses</p>
+                    <p class="text-xl font-semibold">오디오 선글라스</p>
+                </button>
+            </div>
+        </div>
+
+        <div class="h-24">
+            <h1 class="font-semibold text-4xl text-center">베스트 상품</h1>
+        </div>
+        // 상품을 슬라이드로 바꾸기
+
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid grid-cols-2 gamt-12 mx-2 lg:grid-cols-4 gap-8">
+                <div class="relative w-full h-full">
+                    <div class="img_wrap">
+                        <a href="">
+                            <img class="main_img" src="https://cdn.imweb.me/thumbnail/20221006/5dd0e02020cf7.jpg"
+                                alt="">
+                            <img class="hover_img" src="https://cdn.imweb.me/thumbnail/20221123/00da0cfeae9dc.jpg"
+                                alt="">
+                        </a>
+                    </div>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#fff]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#0a1054]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#949292]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 QC 이어버드 2
+                                노이즈캔슬링 블루투스 완전 무선 이어폰</p>
+                            <span class="font-bold mt-1">359,000원</span>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="relative w-full h-full">
+                    <div class="img_wrap">
+                        <a href="">
+                            <img class="main_img" src="https://cdn.imweb.me/thumbnail/20220705/a2cae887a36a7.jpg"
+                                alt="">
+                            <img class="hover_img" src="https://cdn.imweb.me/thumbnail/20220705/df4856943dbff.jpg"
+                                alt="">
+                        </a>
+                    </div>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#fff]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#0a1054]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#949292]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 QC45 노이즈캔슬링
+                                블루투스헤드폰</p>
+                            <span class="font-bold mt-1">389,000원</span>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="relative w-full h-full">
+                    <div class="img_wrap">
+                        <a href="">
+                            <img class="main_img" src="https://cdn.imweb.me/thumbnail/20220705/1761baa91f4d8.jpg"
+                                alt="">
+                            <img class="hover_img" src="https://cdn.imweb.me/thumbnail/20220705/5999a158152c7.jpg"
+                                alt="">
+                        </a>
+                    </div>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#fff]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#982323]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#7cafc4]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 사운드링크 플렉스
+                                블루투스 스피커</p>
+                            <span class="font-bold mt-1">359,000원</span>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="relative w-full h-full">
+                    <a href="">
+                        <img src="https://cdn.imweb.me/thumbnail/20220705/5b9c5413e3f25.jpg" alt="">
+                    </a>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 QC35 II 노이즈캔슬링 헤드셋</p>
+                            <p class="font-bold mt-1">389,000원</p>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-24 mt-24">
+            <h1 class="font-semibold text-4xl text-center">신제품</h1>
+        </div>
+
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid grid-cols-2 gamt-12 mx-2 lg:grid-cols-4 gap-8">
+                <div class="relative w-full h-full">
+                    <a href="">
+                        <img src="https://cdn.imweb.me/thumbnail/20221222/3efd6a9a6c535.jpg" alt="">
+                    </a>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 스마트 사운드바 600
+                                블루투스 스피커</p>
+                            <span class="font-bold mt-1">699,000원</span>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="relative w-full h-full">
+                    <div class="img_wrap">
+                        <a href="">
+                            <img class="main_img" src="https://cdn.imweb.me/thumbnail/20221006/5dd0e02020cf7.jpg"
+                                alt="">
+                            <img class="hover_img" src="https://cdn.imweb.me/thumbnail/20221123/00da0cfeae9dc.jpg"
+                                alt="">
+                        </a>
+                    </div>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#fff]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#0a1054]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#949292]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 QC 이어버드 2
+                                노이즈캔슬링 블루투스 완전 무선 이어폰</p>
+                            <span class="font-bold mt-1">359,000원</span>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="relative w-full h-full">
+                    <div class="img_wrap">
+                        <a href="">
+                            <img class="main_img" src="https://cdn.imweb.me/thumbnail/20220705/1761baa91f4d8.jpg"
+                                alt="">
+                            <img class="hover_img" src="https://cdn.imweb.me/thumbnail/20220705/5999a158152c7.jpg"
+                                alt="">
+                        </a>
+                    </div>
+                    <a href="">
+                        <div class="mt-4 pl-1">
+                            <div class="my-1 box-border">
+                                <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#fff]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#982323]"></span>
+                                <span class="inline-block border w-2 h-2 bg-[#7cafc4]"></span>
+                            </div>
+                            <p>[BOSE] 보스 정품 사운드링크 플렉스
+                                블루투스 스피커</p>
+                            <span class="font-bold mt-1">359,000원</span>
+                            <div class="flex justify-start mt-2">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                                <img class="w-13 h-6 mr-1"
+                                    src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <a href="">
+                    <img src="https://cdn.imweb.me/thumbnail/20220705/5b9c5413e3f25.jpg" alt="">
+                    <div class="mt-4 pl-1">
+                        <div class="my-1 box-border">
+                            <span class="inline-block border w-2 h-2 bg-[#000]"></span>
+                        </div>
+                        <p>[BOSE] 보스 정품 QC35 II 노이즈캔슬링 헤드셋</p>
+                        <p class="font-bold mt-1">389,000원</p>
+                        <div class="flex justify-start mt-2">
+                            <img class="w-13 h-6 mr-1"
+                                src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/32839f559a963.png" alt="">
+                            <img class="w-13 h-6 mr-1"
+                                src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/5a5b4056eefc5.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="mt-24 inset-0 h-[870px] bg-cover relative w-full bg-[url('https://cdn.imweb.me/thumbnail/20220728/f5fce9867808d.jpg')]">
+            <div class="h-full w-full flex flex-col justify-end lg:justify-center lg:items-end lg:absolute">
+                <div class="mb-16 lg:w-1/2 mr-4">
+                    <h1 class="w-full text-black leading-8 font-light tracking-wider text-center text-sm lg:text-base">
+                        BOSE PREMIUM HOME
+                        THEATER SYSTEM WITH DOLBY ATMOS®</h1>
+                    <h1 class="w-full text-black leading-normal text-center font-bold mt-4 text-xl lg:text-3xl">
+                        영화관같은
+                        사운드를 당신의
+                        거실에서 직접 경험해 보세요</h1>
+                    <div class="w-full text-center">
+                        <a href="">
+                            <button class="border px-12 py-4 mt-4 text-black tracking-wider lg:w-1/2">자세히보기<span
+                                    class="ml-1">></span></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-screen-xl mx-auto h-64 my-12">
+            <div class="h-full bg-cover bg-[url('https://cdn.imweb.me/thumbnail/20220728/485f0642012fb.jpg')]"
+                style="background-position: 50% 50%;">
+                <div class="w-[400px] h-full flex flex-col justify-center items-start ml-12">
+                    <h1 class="text-3xl font-bold">BOSE의 혜택과 품질은 동일하게.
+                        가격은 더욱 저렴하게.</h1>
+                    <span class="w-[500px] mt-2">정품과 동일한 1년의 보증기간과 꼼꼼한 검수를 약속하는 인증 리퍼상품</span>
+                    <a href="">
+                        <button class="px-12 py-4 mt-4 bg-white tracking-wider">바로보기<span class="ml-1">></span></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="topbtn"
+            class="fixed right-4 bottom-4 w-10 h-10 bg-white border border-gray-300 cursor-pointer invisible">
+            <svg class="w-full text-4xl" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                <path
+                    d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+            </svg>
+        </div>
+
+
+    </main>
+
+    <footer class="mt-12 bg-black">
+        <div class="h-full grid grid-cols-3 lg:grid-cols-6">
+            <div class="flex justify-center items-center mt-10 lg:my-2">
+                <img src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/e788bdb907ca6.jpg" alt="">
+            </div>
+
+            <div class="text-sm col-span-2 ml-4 lg:col-span-3">
+                <div class="flex flex-col justify-center items-start mt-10 lg:mt-4">
+                    <p class="my-1">
+                        <span class="text-neutral-400">
+                            코오롱모빌리티그룹(주) &nbsp |
+                            <span>&nbsp 대표자명 : 이규호, 전철원</span>
+                        </span>
+                    </p>
+                    <p class="my-1">
+                        <span class="text-neutral-400">
+                            주소 : 경기도 안양시 평촌대로212번길 55 9층 &nbsp |
+                            <span>&nbsp 연락처 : 02-2038-7986</span>
+                        </span>
+                    </p>
+                    <p class="my-1">
+                        <span class="text-neutral-400">
+                            사업자등록번호 : 833-87-02544 &nbsp |
+                            <span>&nbsp 통신판매업신고번호 : 2023-안양동안-0184</span>
+                        </span>
+                    </p>
+                    <p class="text-neutral-400">
+                        개인정보관리책임자 : 박상훈
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="text-sm col-start-2 col-span-2 ml-4 lg:col-span-2">
+                <div class="flex justify-start items-start mt-2 lg:mt-16">
+                    <p class="text-neutral-400">
+                        <span>
+                            <a href="">
+                                이용약관
+                            </a>
+                            &nbsp | &nbsp
+                        </span>
+                        <span>
+                            <a href="">
+                                개인정보처리방침
+                            </a>
+                            &nbsp | &nbsp
+                        </span>
+                        <span>
+                            <a href="">
+                                Hosting by (주)아임웹
+                            </a>
+                        </span>
+                    </p>
+                </div>
+                <div class="flex justify-start items-center mt-2 lg:mt-4">
+                    <a href="">
+                        <div class="relative fill-black w-12 h-12 bg-[url('https://github.com/parkheeyeun/github/blob/main/naver_icon.png')]"
+                            style="background-position: 24px 50px;"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="js/main.js"></script>
+
+</html>

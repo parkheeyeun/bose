@@ -1,0 +1,51 @@
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Pretendard';
+}
+
+#carousel img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    margin-right: 0.25rem;
+}
+
+.active {
+    opacity: 1;
+}
+
+.img_wrap {
+    position: relative;
+}
+
+.hover_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.img_wrap:hover .hover_img {
+    display: block;
+}
+
+.visual {
+    opacity: 1;
+}
+
+#dropdown:hover #dropdown-content {
+    display: block;
+}
