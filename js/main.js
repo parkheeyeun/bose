@@ -35,7 +35,7 @@ function navigateTo() {
     thisIndex += 1
 
     // carousel.style.transform = `translate(-${thisIndex * imageWidth}px)`
-    console.log()
+    // console.log()
 
     if (thisIndex === thumbnails.length) {
         thisIndex = 0

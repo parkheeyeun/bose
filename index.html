@@ -59,18 +59,19 @@
 
     </header>
     <nav class="bg-white w-full">
-        <ul class="flex justify-around items-center text-black text-center text-sm">
-            <li class="">
-                <a href="" class="w-full py-1 block hover:opacity-50 ">전체</a>
+        <ul class="flex justify-center items-center text-black text-center text-sm">
+            <li class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="" class="py-1 block hover:opacity-50 ">전체</a>
             </li>
-            <li class="">
-                <a href="#" class="w-full py-1 block hover:opacity-50">
+            <li class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="#" class="py-1 block hover:opacity-50">
                     헤드폰</a>
             </li>
-            <li id="dropdown" class="relative">
-                <a href="#" class="w-full py-1 block hover:opacity-50">
+            <li id="dropdown" class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="#" class="py-1 block hover:opacity-50">
                     이어폰</a>
-                <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max text-left hidden">
+                <ul id="dropdown-content"
+                    class="absolute z-30 bg-black text-white font-semibold w-max text-left hidden">
                     <li class="p-2 w-full transition duration-500 ease-in-out hover:bg-white hover:text-gray-500"><a
                             href="#" class="p-2 block w-full">전체</a></li>
                     <li class="p-2 w-full transition duration-500 ease-in-out hover:bg-white hover:text-gray-500"><a
@@ -79,8 +80,8 @@
                             href="#" class="p-2 block w-full">이어폰 액세서리</a></li>
                 </ul>
             </li>
-            <li id="dropdown" class="">
-                <a href="" class="w-full py-1 block hover:opacity-50">
+            <li id="dropdown" class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="" class="py-1 block hover:opacity-50">
                     사운드바</a>
                 <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
                     <li class="p-2 transition duration-500 ease-in-out hover:bg-white hover:text-gray-500"><a href=""
@@ -95,8 +96,8 @@
                             class="p-1 block">사운드바 액세서리</a></li>
                 </ul>
             </li>
-            <li id="dropdown" class="">
-                <a href="" class="w-full py-1 block hover:opacity-50">
+            <li id="dropdown" class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="" class="py-1 block hover:opacity-50">
                     스피커</a>
                 <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
                     <li class="p-2 transition duration-500 ease-in-out hover:bg-white hover:text-gray-500"><a href=""
@@ -111,11 +112,11 @@
                             class="p-1 block">스피커 액세서리</a></li>
                 </ul>
             </li>
-            <li class="">
-                <a href="" class="w-full py-1 block hover:opacity-50">리퍼 상품</a>
+            <li class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="" class="py-1 block hover:opacity-50">리퍼 상품</a>
             </li>
-            <li id="dropdown" class="">
-                <a href="" class="w-full py-1 block hover:opacity-50">
+            <li id="dropdown" class="flex-grow-1 mr-1 md:mr-4 lg:mr-8">
+                <a href="" class="py-1 block hover:opacity-50">
                     고객지원</a>
                 <ul id="dropdown-content" class="absolute z-30 bg-black text-white font-semibold w-max hidden">
                     <li class="p-2 transition duration-500 ease-in-out hover:bg-white hover:text-gray-500"><a href=""
@@ -189,7 +190,7 @@
 
     <main>
         <div class="bg-white">
-            <div class="h-full grid grid-cols-1 md:grid-cols-4">
+            <div class="h-full grid grid-cols-1 lg:grid-cols-4">
                 <div id="ment" class="flex flex-col text-black text-xl justify-center items-center ml-4 mt-4">
                     <p>왜 BOSE 온라인 스토어에서</p>
                     <p class="mt-1">구매해야할까요?</p>
@@ -233,20 +234,15 @@
             </div>
         </div>
 
-        // 화면에 맞추기 carousel, 선택
-        <div class="h-[750px] relative overflow-hidden box-border">
-            <img id="main" class="h-[750px] w-full object-cover" style="background-position: 50% 50%;"
-                src="https://cdn.imweb.me/thumbnail/20221221/060eb6d72a60e.png" alt="">
+        <div class="relative overflow-hidden box-border">
+            <img id="main" class="w-full object-cover" src="https://cdn.imweb.me/thumbnail/20221221/060eb6d72a60e.png"
+                alt="">
 
             <div id="carousel" class="w-full absolute flex justify-center opacity-0 visual">
-                <img class="thumbnail" style="background-position: 50% 50%;"
-                    src="https://cdn.imweb.me/thumbnail/20221221/060eb6d72a60e.png" alt="">
-                <img class="thumbnail" style="background-position: 50% 50%;"
-                    src="https://cdn.imweb.me/thumbnail/20221006/daf77a620b3fb.png" alt="">
-                <img class="thumbnail" style="background-position: 50% 50%;"
-                    src="https://cdn.imweb.me/thumbnail/20220816/701610f6cc681.jpg" alt="">
-                <img class="thumbnail" style="background-position: 50% 50%;"
-                    src="https://cdn.imweb.me/thumbnail/20220816/5e72def4e01df.png" alt="">
+                <img class="thumbnail" src="https://cdn.imweb.me/thumbnail/20221221/060eb6d72a60e.png" alt="">
+                <img class="thumbnail" src="https://cdn.imweb.me/thumbnail/20221006/daf77a620b3fb.png" alt="">
+                <img class="thumbnail" src="https://cdn.imweb.me/thumbnail/20220816/701610f6cc681.jpg" alt="">
+                <img class="thumbnail" src="https://cdn.imweb.me/thumbnail/20220816/5e72def4e01df.png" alt="">
             </div>
 
             <div id="indicator" class="absolute bottom-1 text-center w-full">
@@ -297,7 +293,6 @@
         <div class="h-24">
             <h1 class="font-semibold text-4xl text-center">베스트 상품</h1>
         </div>
-        // 상품을 슬라이드로 바꾸기
 
         <div class="max-w-screen-xl mx-auto">
             <div class="grid grid-cols-2 gap-4 mb-20 mx-2 lg:grid-cols-4 gap-8">
@@ -515,9 +510,9 @@
         </div>
 
         <div
-            class="mt-24 inset-0 h-[870px] bg-cover relative w-full bg-[url('https://cdn.imweb.me/thumbnail/20220728/f5fce9867808d.jpg')]">
-            <div class="h-full w-full flex flex-col justify-end lg:justify-center lg:items-end lg:absolute">
-                <div class="mb-16 lg:w-1/2 mr-4">
+            class="mt-12 h-screen bg-cover relative bg-[url('https://cdn.imweb.me/thumbnail/20220728/f5fce9867808d.jpg')]">
+            <div class="h-full flex justify-center items-center">
+                <div class="mx-2">
                     <h1 class="w-full text-white leading-8 font-light tracking-wider text-center text-sm lg:text-base">
                         BOSE PREMIUM HOME
                         THEATER SYSTEM WITH DOLBY ATMOS®</h1>
@@ -536,14 +531,13 @@
         </div>
 
         <div class="max-w-screen-xl mx-auto h-64 my-12">
-            <div class="h-full bg-cover bg-[url('https://cdn.imweb.me/thumbnail/20220728/485f0642012fb.jpg')]"
-                style="background-position: 50% 50%;">
-                <div class="h-full flex flex-col justify-center items-start ml-12">
-                    <h1 class="text-3xl font-bold">BOSE의 혜택과 품질은 동일하게.
+            <div class="h-full bg-cover bg-[url('https://cdn.imweb.me/thumbnail/20220728/485f0642012fb.jpg')]">
+                <div class="h-full flex flex-col justify-center items-start mx-2 md:ml-12">
+                    <h1 class="text-xl font-bold md:text-3xl">BOSE의 혜택과 품질은 동일하게.
                         가격은 더욱 저렴하게.</h1>
-                    <span class="mt-2">정품과 동일한 1년의 보증기간과 꼼꼼한 검수를 약속하는 인증 리퍼상품</span>
+                    <span class="text-sm mt-2 md:text-base">정품과 동일한 1년의 보증기간과 꼼꼼한 검수를 약속하는 인증 리퍼상품</span>
                     <a href="">
-                        <button class="px-12 py-4 mt-4 bg-white tracking-wider">바로보기<span class="ml-1">></span></button>
+                        <button class="px-8 py-4 mt-4 bg-white tracking-wider md:px-12">바로보기<span class="ml-1">></span></button>
                     </a>
                 </div>
             </div>
@@ -562,8 +556,8 @@
 
     <footer class="mt-12 bg-black">
         <div class="h-full grid grid-cols-3 lg:grid-cols-6">
-            <div class="flex justify-center items-center mt-10 lg:my-2">
-                <img src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/e788bdb907ca6.jpg" alt="">
+            <div class="flex justify-center items-center mt-10 lg:my-2 mx-2">
+                <img src="https://cdn.imweb.me/upload/S202206294c0a2cc6190f4/e788bdb907ca6.jpg" alt="bose 로고">
             </div>
 
             <div class="text-sm col-span-2 ml-4 lg:col-span-3">
